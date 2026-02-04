@@ -11,6 +11,11 @@ const words = ["cat","dog","sun","sky","sea","tree","leaf","rock","fire","wind",
 const letters = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
 
 
+// sound section
+const correctSound = new Audio('./sounds/correct.mp3');
+const wrongSound = new Audio('./sounds/wrong.mp3');
+
+
 const display = document.getElementById("display_key");
 
 let currentLetter = "";
@@ -27,8 +32,18 @@ function changeWord(){
 function processKeyEvent(e) {
     if(e.key == currentLetter){
         document.body.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)]
+        
+        // right tick sound
+        correctSound.currentTime = 0;
+        correctSound.play();
 
         changeWord()
+    } else {
+        document.body.style.backgroundColor = colors[0];
+
+        // wrong beep sound
+        wrongSound.currentTime = 0;
+        wrongSound.play();
     }
 }
 
