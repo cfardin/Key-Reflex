@@ -17,6 +17,7 @@ const wrongSound = new Audio('./sounds/wrong.mp3');
 
 
 const display = document.getElementById("display_key");
+// const display = document.getElementsByClassName("display_key");
 
 let currentLetter = "";
 
